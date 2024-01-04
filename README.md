@@ -9,7 +9,7 @@
 - [JavaScript Data Types](#javaScript-data-types)
 - [JavaScript Functions](#javaScript-functions)
 - [JavaScript Events](#javaScript-events)
-- [JavaScript String](#javaScript-string)
+- [JavaScript String Methods](#javaScript-string-methods)
   
 
 ***
@@ -540,7 +540,7 @@ En Çok Kullanılan JavaScript Olayları:
   </html>
    ```
 ***
-## JavaScript String 
+## JavaScript String Methods
 JavaScript'de string (metin) veri tipi, metin verilerini temsil eder ve bir dizi metin işlemi gerçekleştirmek için bir dizi yöntem (metot) sunar. 
 İşte en çok kullanılan string metotlarından bazıları:
 

@@ -9,6 +9,7 @@
 - [JavaScript Data Types](#javaScript-data-types)
 - [JavaScript Functions](#javaScript-functions)
 - [JavaScript Events](#javaScript-events)
+- [JavaScript String](#javaScript-string)
   
 
 ***
@@ -375,16 +376,235 @@ let carpma = (a, b) => {
 ```
 ***
 
+## JavaScript Events
+JavaScript'te en yaygın olarak kullanılan olaylar, genellikle web uygulamalarının çeşitli etkileşimleri ve tepkileri için kullanılan olaylardır. İşte en yaygın olarak kullanılan JavaScript olaylarından bazıları:
+
+En Çok Kullanılan JavaScript Olayları:
+
+- **Click (Tıklama)**: Kullanıcı bir öğeye tıkladığında tetiklenir. Özellikle butonlar, linkler gibi öğelerde kullanılır.
+    ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+     <meta charset="UTF-8">
+     <title>Click Event Örneği</title>
+  </head>
+  <body>
+  <button id="clickButton">Tıkla!</button>
+  <p id="demo"></p>
+
+  <script>
+    document.getElementById("clickButton").addEventListener("click", function() {
+  document.getElementById("demo").innerHTML = "Butona Tıklandı!";
+   });
+  </script>
+  </body>
+  </html>
+   ```
 
 
+- **Mouseover (Üzerine Gelme)**: Fare bir öğenin üzerine geldiğinde tetiklenir. Örneğin, bir öğenin üzerine gelindiğinde renk değişimi gibi efektler için kullanılabilir.
+   ```html
+    <!DOCTYPE html>
+  <html lang="en">
+  <head>
+     <meta charset="UTF-8">
+     <title>Mouseover Event Örneği</title>
+     <style>
+         /* Stillemek için basit CSS */
+        #hoverDiv {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+           }
+     </style>
+  </head>
+  <body>
+    <div id="hoverDiv">Üzerime Gel!</div>
 
+  <script>
+   // Mouseover olayını dinle
+  document.getElementById("hoverDiv").addEventListener("mouseover", function() {
+  document.getElementById("hoverDiv").style.backgroundColor = "lightgreen";
+  document.getElementById("hoverDiv").innerHTML = "Geldin!";
+   });
 
+  // Mouseout olayını dinle
+  document.getElementById("hoverDiv").addEventListener("mouseout", function() {
+  document.getElementById("hoverDiv").style.backgroundColor = "lightblue";
+  document.getElementById("hoverDiv").innerHTML = "Üzerime Gel!";
+  });
 
+   </script>
+  </body>
+  </html>
+  ```
+  
 
+- **Submit (Gönderme)**: Bir formun gönderilme işlemi başladığında tetiklenir. Formların işlenmesi için önemlidir.
 
+    ```html
+      <!DOCTYPE html>
+    <html lang="en">
+      <head>
+           <meta charset="UTF-8">
+           <title>Submit Event Örneği</title>
+     </head>
+     <body>
+        <form id="myForm">
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" id="username" name="username"><br><br>
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Giriş">
+        </form>
+  
+      <p id="result"></p>
 
+      <script>
+              // Form gönderme olayını dinle
+             document.getElementById("myForm").addEventListener("submit", function(event) {
+             event.preventDefault(); // Sayfanın yeniden yüklenmesini engellemek için
 
+             // Formdan alınan verileri alma
+             const username = document.getElementById("username").value;
+             const password = document.getElementById("password").value;
 
+            // Sonucu ekrana yazdırma
+              document.getElementById("result").innerHTML = `Kullanıcı adı: ${username}, Şifre: ${password}`;
+             });
+  
+     </script>
+      </body>
+    </html>
+   ```
+  
+
+- **Change (Değişiklik)**: Bir öğenin değeri değiştiğinde tetiklenir. Özellikle form elemanlarında (input, select) sıklıkla kullanılır.
+  ```html
+   <!DOCTYPE html>
+  <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Change Event Örneği</title>
+    </head>
+   <body>
+      <label for="color">Renk Seçimi:</label>
+      <select id="color">
+        <option value="">Seçiniz</option>
+        <option value="red">Kırmızı</option>
+        <option value="green">Yeşil</option>
+        <option value="blue">Mavi</option>
+      </select>
+  
+      <p id="result"></p>
+
+    <script src="script.js">
+     // Change olayını dinle
+     document.getElementById("color").addEventListener("change", function() {
+     const selectedColor = document.getElementById("color").value;
+     document.getElementById("result").innerHTML = `Seçilen Renk: ${selectedColor}`;
+      });
+
+    </script>
+   </body>
+  </html>
+   ```
+- **Focus (Odaklanma) ve Blur (Odaktan Çıkma)**: Bir öğe odaklandığında veya odaktan çıktığında tetiklenir. Özellikle form elemanları için kullanılır.
+    ```html
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Focus ve Blur Event Örneği</title>
+   </head>
+   <body>
+     <label for="username">Kullanıcı Adı:</label>
+     <input type="text" id="username" name="username">
+     <p id="result"></p>
+     <script>
+       // Odaklanma (focus) olayını dinle
+       document.getElementById("username").addEventListener("focus", function() {
+       document.getElementById("result").innerHTML = "Inputa Odaklandınız!";
+       });
+
+       // Odaktan çıkma (blur) olayını dinle
+       document.getElementById("username").addEventListener("blur", function() {
+       document.getElementById("result").innerHTML = "Inputtan Çıktınız!";
+       });
+    </script>
+   </body>
+  </html>
+   ```
+***
+## JavaScript String 
+JavaScript'de string (metin) veri tipi, metin verilerini temsil eder ve bir dizi metin işlemi gerçekleştirmek için bir dizi yöntem (metot) sunar. 
+İşte en çok kullanılan string metotlarından bazıları:
+
+1. `length`: Bir stringin karakter sayısını döndürür.
+
+```javascript
+const text = "Merhaba!";
+console.log(text.length); // Çıktı: 8
+```
+
+2. `charAt()`: Belirli bir konumdaki karakteri döndürür.
+ 
+ ```javascript
+const text = "Merhaba!";
+console.log(text.length); // Çıktı: 8
+```
+
+3. `toUpperCase()` ve `toLowerCase()`: Metni büyük veya küçük harfe dönüştürür.
+
+ ```javascript
+const text = "Merhaba!";
+console.log(text.length); // Çıktı: 8
+```
+
+4. `concat()`: Bir veya daha fazla stringi birleştirir.
+ 
+ ```javascript
+const text1 = "Merhaba, ";
+const text2 = "nasılsın?";
+console.log(text1.concat(text2)); // Çıktı: "Merhaba, nasılsın?"
+```
+
+5. `indexOf()` ve `lastIndexOf()`: Belirli bir karakterin veya alt dizinin ilk veya son indeksini döndürür.
+
+ ```javascript
+const text = "Merhaba!";
+console.log(text.indexOf("a")); // Çıktı: 3
+console.log(text.lastIndexOf("a")); // Çıktı: 5
+```
+
+6. `substring()`: Belirli bir indeksten başlayarak belirli bir karakter sayısını içeren bir alt string döndürür.
+```javascript
+const text = "Merhaba!";
+console.log(text.substring(3, 7)); // Çıktı: "aba!"
+```
+7. `replace()`: Belirli bir deseni veya karakter dizisini başka bir desenle değiştirir.
+```javascript
+const text = "Merhaba, Dünya!";
+console.log(text.replace("Dünya", "Evren")); // Çıktı: "Merhaba, Evren!"
+```
+
+8.   ` `` ` (backtick)
+   
+JavaScript'deki template strings, eski string birleştirme yöntemlerine göre daha esnek ve okunaklıdır. ` `` ` (backtick) işaretleriyle tanımlanırlar ve  `${}` ifadelerini kullanarak değişkenleri veya ifadeleri içine alabilirler. Multiline strings yazılabilir.
+
+İşte bir örnek:
+```javascript
+        const name = "Ahmet";
+        const age = 30;
+
+        const greeting = `Merhaba, ben ${name}! Yaşım ${age}.`;
+        console.log(greeting); // Çıktı: "Merhaba, ben Ahmet! Yaşım 30."
+ ```
+***
 
 
 

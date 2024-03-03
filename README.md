@@ -12,6 +12,13 @@
 - [JavaScript String Methods](#javaScript-string-methods)
 - [JavaScript Number Methods](#javaScript-number-methods)
 - [JavaScript Array And Array Methods](#javaScript-array-and-array-methods)
+- [Array Iteration Methods](#javaScript-iteration-methods)
+- [JavaScript Conditional](#javaScript-conditional)  
+- [JavaScript Switch](#javaScript-switch)
+- [JavaScript Loops](#javaScript-loops)
+- [JavaScript Dom](#javaScript-dom)
+  
+
   
 
 ***
@@ -750,15 +757,167 @@ console.log(fruits); // Çıktı: ["muz", "elma", "armut"]
 ```
 ***
 
+## Array Iteration Methods
+Array Iteration Methods, bir dizinin her bir öğesini işlemek için kullanılan ve döngülerle aynı işlevi yerine getiren bir dizi yöntemdir. Bu yöntemler, dizinin her bir öğesine teker teker erişmenizi sağlar ve belirli bir işlemi her bir öğe üzerinde gerçekleştirmenize olanak tanır.
 
+En yaygın kullanılan Array Iteration Methods şunlardır:
 
+- `forEach()`: Dizinin her bir öğesini işlemek için kullanılır ve her öğe için belirtilen bir işlevi çağırır.
 
+- `map()`: Dizinin her bir öğesine belirli bir işlemi uygular ve işlem sonucunu yeni bir dizi olarak döndürür.
 
+-  `filter()`: Belirli bir koşulu sağlayan öğeleri filtreler ve yeni bir dizi olarak döndürür.
 
+-  `find()`: Belirli bir koşulu sağlayan ilk öğeyi bulur ve döndürür.
 
+-  `reduce()`: Dizinin tüm öğeleri üzerinde bir işlem yapar ve sonuç değerini döndürür.
 
+```javascript
+let numbers = [1, 2, 3, 4, 5];
 
+// forEach(): Her bir öğeyi işlemek için kullanılır
+numbers.forEach(function(num) {
+  console.log(num);
+});
 
+// map(): Her bir öğeye belirli bir işlemi uygular ve yeni bir dizi olarak döndürür
+let squaredNumbers = numbers.map(function(num) {
+  return num * num;
+});
+console.log(squaredNumbers);
+
+// filter(): Belirli bir koşulu sağlayan öğeleri filtreler ve yeni bir dizi olarak döndürür
+let evenNumbers = numbers.filter(function(num) {
+  return num % 2 === 0;
+});
+console.log(evenNumbers);
+
+// find(): Belirli bir koşulu sağlayan ilk öğeyi bulur ve döndürür
+let firstEvenNumber = numbers.find(function(num) {
+  return num % 2 === 0;
+});
+console.log(firstEvenNumber);
+
+// reduce(): Dizinin tüm öğeleri üzerinde bir işlem yapar ve sonuç değerini döndürür
+let sum = numbers.reduce(function(acc, num) {
+  return acc + num;
+}, 0);
+console.log(sum);
+```
+***
+## JavaScript Conditional 
+JavaScript'te koşullu ifadeler, belirli bir koşulun doğruluğuna bağlı olarak farklı kod bloklarının çalıştırılmasını sağlar. Bu koşullu ifadeler, `if`, `if-else` ve `else if` şeklinde kullanılabilir.
+
+- `if`: Belirli bir koşul doğruysa, içindeki kod bloğunu çalıştırır.
+- `if-else`: Belirli bir koşul doğruysa, ilgili kod bloğunu çalıştırır; aksi halde başka bir kod bloğunu çalıştırır.
+- `else if`: Birden fazla koşulun kontrol edilmesini sağlar. Bir önceki if veya else if ifadesi yanlışsa ve kendisi doğruysa, ilgili kod bloğunu çalıştırır.
+İşte her biri için basit bir örnek:
+
+```javascript
+let x = 10;
+
+// if statement
+if (x > 5) {
+  console.log("x, 5'ten büyüktür.");
+}
+
+// if-else statement
+if (x < 5) {
+  console.log("x, 5'ten küçüktür.");
+} else {
+  console.log("x, 5'ten küçük değildir.");
+}
+
+// else if statement
+if (x < 5) {
+  console.log("x, 5'ten küçüktür.");
+} else if (x === 5) {
+  console.log("x, 5'e eşittir.");
+} else {
+  console.log("x, 5'ten büyüktür.");
+}
+```
+***
+
+## JavaScript Switch
+JavaScript'te, `switch` ifadesi, bir değişkenin farklı değerlerine bağlı olarak farklı kod bloklarının çalıştırılmasını sağlar. `switch` ifadesi, bir veya daha fazla `case` durumunun belirli bir değişken değerine eşleştiği durumlarda çalıştırılacak kod bloklarını belirler.
+
+İşte `switch` ifadesinin kullanımına ilişkin basit bir örnek:
+```javascript
+let day = 3;
+let dayName;
+
+switch (day) {
+  case 1:
+    dayName = "Pazartesi";
+    break;
+  case 2:
+    dayName = "Salı";
+    break;
+  case 3:
+    dayName = "Çarşamba";
+    break;
+  case 4:
+    dayName = "Perşembe";
+    break;
+  case 5:
+    dayName = "Cuma";
+    break;
+  case 6:
+    dayName = "Cumartesi";
+    break;
+  case 7:
+    dayName = "Pazar";
+    break;
+  default:
+    dayName = "Geçersiz gün";
+}
+console.log("Bugün " + dayName);
+```
+***
+## JavaScript Loops
+JavaScript'te döngüler, belirli bir işlemi tekrar tekrar gerçekleştirmek için kullanılır. En yaygın kullanılan döngüler `for, for...in, for...of ve while` döngüleridir. İşte her biri için bir örnek:
+
+`for` Döngüsü:
+```javascript
+console.log("for döngüsü örneği:");
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+```
+`for...in` Döngüsü:
+```javascript
+console.log("for...in döngüsü örneği:");
+let person = {name: "John", age: 30, city: "New York"};
+for (let key in person) {
+  console.log(key + ": " + person[key]);
+}
+```
+
+`for...of` Döngüsü:
+```javascript
+console.log("for...of döngüsü örneği:");
+let colors = ["kırmızı", "yeşil", "mavi"];
+for (let color of colors) {
+  console.log(color);
+}
+```
+`while` Döngüsü:
+```javascript
+console.log("while döngüsü örneği:");
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+```
+***
+## JavaScript Dom
+DOM, Document Object Model'ın kısaltmasıdır ve bir HTML veya XML belgesinin hiyerarşik bir temsilini sağlayan bir programlama arayüzüdür. Bir web tarayıcısı bir web sayfasını yüklediğinde, bu sayfanın DOM'u oluşturulur. DOM, her HTML öğesini bir nesne olarak temsil eder ve bu nesneler arasındaki ilişkileri tanımlar.
+
+JavaScript, DOM'u kullanarak web sayfalarının yapısını değiştirebilir, içeriğini güncelleyebilir ve etkileşimler ekleyebilir. DOM'a erişmek için, JavaScript'te `document` nesnesi kullanılır. Bu nesne, DOM'a erişim sağlar ve bir web sayfasındaki öğeleri seçmek, özelliklerini değiştirmek veya yeni öğeler oluşturmak için kullanılabilir.
+
+Özetle, JavaScript DOM'u kullanarak bir web sayfasının içeriğini ve yapısını dinamik olarak değiştirebilir ve bu sayede interaktif web uygulamaları oluşturabilir.
 
 
 

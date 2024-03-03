@@ -10,6 +10,8 @@
 - [JavaScript Functions](#javaScript-functions)
 - [JavaScript Events](#javaScript-events)
 - [JavaScript String Methods](#javaScript-string-methods)
+- [JavaScript Number Methods](#javaScript-number-methods)
+- [JavaScript Array And Array Methods](#javaScript-array-and-array-methods)
   
 
 ***
@@ -554,15 +556,19 @@ console.log(text.length); // Çıktı: 8
 2. `charAt()`: Belirli bir konumdaki karakteri döndürür.
  
  ```javascript
-const text = "Merhaba!";
-console.log(text.length); // Çıktı: 8
+let str = "Merhaba dünya!";
+console.log(str.charAt(0)); // Çıktı: "M"
+console.log(str.charAt(1)); // Çıktı: "e"
+console.log(str.charAt(7)); // Çıktı: "ü"
 ```
 
 3. `toUpperCase()` ve `toLowerCase()`: Metni büyük veya küçük harfe dönüştürür.
 
  ```javascript
-const text = "Merhaba!";
-console.log(text.length); // Çıktı: 8
+let str = "Merhaba dünya!";
+console.log(str.toUpperCase()); // Çıktı:  "MERHABA DÜNYA!"
+console.log(str.toLowerCase()); // Çıktı:  "merhaba dünya!"
+
 ```
 
 4. `concat()`: Bir veya daha fazla stringi birleştirir.
@@ -577,7 +583,7 @@ console.log(text1.concat(text2)); // Çıktı: "Merhaba, nasılsın?"
 
  ```javascript
 const text = "Merhaba!";
-console.log(text.indexOf("a")); // Çıktı: 3
+console.log(text.indexOf("a")); // Çıktı: 4
 console.log(text.lastIndexOf("a")); // Çıktı: 5
 ```
 
@@ -592,7 +598,15 @@ const text = "Merhaba, Dünya!";
 console.log(text.replace("Dünya", "Evren")); // Çıktı: "Merhaba, Evren!"
 ```
 
-8.   ` `` ` (backtick)
+8. `search()` yöntemi bir dizede belirli bir deseni arar ve desenin ilk konumunu döndürür. Desen bulunamazsa -1 döndürür. Bu yöntemi 
+    kullanırken, aranan desen bir dize veya bir RegExp nesnesi olabilir.
+```javascript
+const str = "Bu bir örnek metindir.";
+const position = str.search("örnek");
+console.log(position); // Çıktı: 7
+```
+
+9.   ` `` ` (backtick)
    
 JavaScript'deki template strings, eski string birleştirme yöntemlerine göre daha esnek ve okunaklıdır. ` `` ` (backtick) işaretleriyle tanımlanırlar ve  `${}` ifadelerini kullanarak değişkenleri veya ifadeleri içine alabilirler. Multiline strings yazılabilir.
 
@@ -605,6 +619,147 @@ JavaScript'deki template strings, eski string birleştirme yöntemlerine göre d
         console.log(greeting); // Çıktı: "Merhaba, ben Ahmet! Yaşım 30."
  ```
 ***
+
+## JavaScript Number Methods
+
+JavaScript'de, Number veri türüne ait bir dizi yöntem bulunmaktadır. Bu yöntemler, sayısal değerlerle çalışırken sık sık kullanılır ve çeşitli işlemleri gerçekleştirmek için kullanılırlar. 
+İşte bazı temel `Number` yöntemleri:
+
+1. `toFixed()` Bir ondalık sayının belirli bir sayıda ondalık basamağa yuvarlanmasını sağlar ve sonucu bir dize olarak döndürür.
+
+```javascript
+let num = 10.5678;
+console.log(num.toFixed(2)); // Çıktı: 10.57
+ ```
+
+2. `toString()` Bir sayıyı belirtilen tabanda (örneğin ondalık, ikili, sekizli, on altılı) bir dizeye dönüştürür veya string çevirir.
+```javascript
+let num = 42;
+console.log(num.toString(2)); // Çıktı: "101010"
+console.log(num.toString()); //  Çıktı: "42"
+```
+
+3. `toPrecision()` Bir sayının belirli bir hassasiyette ifade edilmesini sağlar ve sonucu bir dize olarak döndürür.
+```javascript
+let num = 123.456;
+console.log(num.toPrecision(4)); // Çıktı: "123.5"
+```
+
+4. `parseInt()` Bir dizeyi tamsayıya dönüştürür. Dize, geçerli bir tamsayı olarak yorumlanır ve dönüştürülen tamsayı döndürülür.
+```javascript
+let str = "42";
+let num = parseInt(str);
+console.log(num); // Çıktı: 42
+```
+
+5. `parseFloat()` Bir dizeyi ondalık sayıya dönüştürür. Dize, geçerli bir ondalık sayı olarak yorumlanır ve dönüştürülen ondalık sayı döndürülür.
+```javascript
+let str = "3.14";
+let num = parseFloat(str);
+console.log(num); // Çıktı: 3.14
+```
+***
+## JavaScript Array And Array Methods
+JavaScript'te bir dizi (array), birden fazla değeri tek bir değişken altında depolamak için kullanılan bir veri yapısıdır. Bir dizi, birbiri ardına sıralanmış bir dizi elemanı içerir. İşte basitçe açıklanan ve birbirinden farklı üç dizi örneği:
+
+Örnek Number Dizi:
+```javascript
+let numbers = [1, 2, 3, 4, 5];
+console.log(numbers); // Çıktı: [1, 2, 3, 4, 5]
+```
+Örnek String Dizi:
+```javascript
+let fruits = ["elma", "armut", "muz", "çilek"];
+console.log(fruits); // Çıktı: ["elma", "armut", "muz", "çilek"]
+```
+Örnek Karma Dizi:
+```javascript
+let mixedArray = [42, "merhaba", true, {name: "Ahmet"}];
+console.log(mixedArray); // Çıktı: [42, "merhaba", true, {name: "Ahmet"}]
+```
+### JavaScript Array Methods
+JavaScript dizileri, bir dizi üzerinde farklı işlemleri gerçekleştirmek için kullanılabilen bir dizi özel yönteme (method) sahiptir. Bu yöntemler, dizinin elemanlarını eklemek, kaldırmak, değiştirmek, döngü işlemleri yapmak ve daha fazlasını yapmak için kullanılır. Örnek bazı metotlar şunlardır:
+
+JavaScript dizilerinde en sık kullanılan bazı yöntemler şunlardır:
+
+- `length()`: Dizinin uzunluğunu alır
+
+- `push()`: Dizinin sonuna bir veya daha fazla öğe ekler.
+
+- `pop()`: Dizinin sonundaki öğeyi kaldırır ve döndürür.
+
+- `shift()`: Dizinin başındaki öğeyi kaldırır ve döndürür.
+
+- `unshift()`: Dizinin başına bir veya daha fazla öğe ekler.
+
+- `indexOf()`: Belirli bir öğenin dizideki ilk indeksini bulur.
+
+- `lastIndexOf()`: Belirli bir öğenin dizideki son indeksini bulur.
+
+- `slice()`: Belirli bir aralıktaki öğeleri yeni bir dizi olarak kopyalar.
+
+- `splice()`: Belirli bir konumda öğeleri ekler, kaldırır veya değiştirir.
+- `sort()`: Diziyi sıralar
+- `reverse()`: Dizinin elemanlarını tersine çevirir 
+
+```javascript
+let fruits = ["elma", "armut", "muz"];
+
+// length: Dizinin uzunluğunu alır
+console.log(fruits.length); // Çıktı: 3
+
+// push(): Dizinin sonuna bir öğe ekler
+fruits.push("çilek");
+console.log(fruits); // Çıktı: ["elma", "armut", "muz", "çilek"]
+
+// pop(): Dizinin sonundaki öğeyi kaldırır ve döndürür
+let removedFruit = fruits.pop();
+console.log(removedFruit); // Çıktı: "çilek"
+console.log(fruits); // Çıktı: ["elma", "armut", "muz"]
+
+// shift(): Dizinin başındaki öğeyi kaldırır ve döndürür
+let shiftedFruit = fruits.shift();
+console.log(shiftedFruit); // Çıktı: "elma"
+console.log(fruits); // Çıktı: ["armut", "muz"]
+
+// unshift(): Dizinin başına bir öğe ekler
+fruits.unshift("çilek");
+console.log(fruits); // Çıktı: ["çilek", "armut", "muz"]
+
+// indexOf(): Belirli bir öğenin dizideki ilk indeksini bulur
+console.log(fruits.indexOf("muz")); // Çıktı: 2
+
+// lastIndexOf(): Belirli bir öğenin dizideki son indeksini bulur
+console.log(fruits.lastIndexOf("çilek")); // Çıktı: 0
+
+// slice(): Belirli bir aralıktaki öğeleri yeni bir dizi olarak kopyalar
+let slicedFruits = fruits.slice(1, 3);
+console.log(slicedFruits); // Çıktı: ["armut", "muz"]
+
+// splice(): Belirli bir konumda öğeleri ekler, kaldırır veya değiştirir
+fruits.splice(1, 1, "portakal", "karpuz");
+console.log(fruits); // Çıktı: ["çilek", "portakal", "karpuz", "muz"]
+
+// sort(): Diziyi sıralar
+fruits.sort();
+console.log(fruits); // Çıktı: ["armut", "elma", "muz"]
+
+// reverse(): Dizinin elemanlarını tersine çevirir
+fruits.reverse();
+console.log(fruits); // Çıktı: ["muz", "elma", "armut"]
+```
+***
+
+
+
+
+
+
+
+
+
+
+
 
 
 

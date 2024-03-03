@@ -919,6 +919,204 @@ JavaScript, DOM'u kullanarak web sayfalarının yapısını değiştirebilir, i�
 
 Özetle, JavaScript DOM'u kullanarak bir web sayfasının içeriğini ve yapısını dinamik olarak değiştirebilir ve bu sayede interaktif web uygulamaları oluşturabilir.
 
+En çok kullanılan HTML DOM yöntemleri şunlardır:
+
+- `getElementById()`: Belirli bir ID'ye sahip bir HTML öğesini seçer.
+
+- `getElementsByClassName()`: Belirli bir sınıfa sahip tüm HTML öğelerini seçer.
+
+- `getElementsByTagName()`: Belirli bir etikete sahip tüm HTML öğelerini seçer.
+
+- `querySelector()`: Belirli bir CSS seçiciye uyan ilk HTML öğesini seçer.
+
+- `querySelectorAll()`: Belirli bir CSS seçiciye uyan tüm HTML öğelerini seçer.
+
+- `innerHTML`: Bir HTML öğesinin içeriğini değiştirir veya alır.
+
+- `textContent`: Bir HTML öğesinin metin içeriğini değiştirir veya alır.
+
+- `appendChild()`: Bir HTML öğesine yeni bir alt öğe ekler.
+
+- `removeChild()`: Bir HTML öğesinden bir alt öğe kaldırır.
+
+- `setAttribute()`: Bir HTML öğesinin öznitelik değerini ayarlar.
+
+- `removeAttribute()`: Bir HTML öğesinin özniteliğini kaldırır.
+
+- `style property`: Bir HTML öğesinin stil özelliklerini değiştirir veya alır.
+
+`getElementById()` yöntemiyle bir örnek:
+
+HTML:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById Example</title>
+</head>
+<body>
+    <div id="myDiv">Bu bir div öğesidir.</div>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+JavaScript (script.js):
+```javascript
+// HTML'den bir öğeyi almak için getElementById() yöntemini kullanma
+let divElement = document.getElementById("myDiv");
+
+// Seçilen öğenin içeriğini değiştirme
+divElement.innerHTML = "Bu div öğesi JavaScript tarafından değiştirildi.";
+
+```
+
+`getElementsByClassName()`: yöntemiyle bir örnek:
+
+HTML:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByClassName Example</title>
+    <style>
+        .myClass {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p class="myClass">Bu bir paragraf öğesidir.</p>
+    <p class="myClass">Bu da bir paragraf öğesidir.</p>
+    <p class="myClass">Ve bu da bir paragraf öğesidir.</p>
+    <script src="script.js"></script>
+</body>
+</html>
+
+```
+JavaScript (script.js):
+```javascript
+// Class adına göre öğeleri seçmek için getElementsByClassName() yöntemini kullanma
+let elements = document.getElementsByClassName("myClass");
+
+// Seçilen öğelerin her birini döngü ile gezip içeriğini değiştirme
+for (let i = 0; i < elements.length; i++) {
+    elements[i].textContent = "Bu paragraf öğesi JavaScript tarafından değiştirildi.";
+}
+
+```
+
+`getElementsByTagName()`: yöntemiyle bir örnek:
+
+HTML:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByTagName Example</title>
+</head>
+<body>
+    <div>
+        <p>Birinci paragraf öğesi.</p>
+        <p>İkinci paragraf öğesi.</p>
+        <p>Üçüncü paragraf öğesi.</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+JavaScript (script.js):
+```javascript
+// Etiket adına göre öğeleri seçmek için getElementsByTagName() yöntemini kullanma
+let paragraphs = document.getElementsByTagName("p");
+
+// Seçilen öğelerin her birini döngü ile gezip içeriğini değiştirme
+for (let i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].textContent = "Bu paragraf öğesi JavaScript tarafından değiştirildi.";
+}
+```
+
+Diğer yöntemiyle bir örnek:
+
+HTML:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector and innerHTML Example</title>
+    <style>
+        .myClass {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv" class="myClass">Bu bir div öğesidir.</div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+```
+JavaScript (script.js):
+```javascript
+// Belirli bir CSS seçiciye uyan ilk HTML öğesini seçme
+let divElement = document.querySelector("#myDiv");
+
+// İçeriğini değiştirme
+divElement.innerHTML = "Bu div öğesi JavaScript tarafından değiştirildi.";
+
+// Metin içeriğini değiştirme
+divElement.textContent = "Bu div öğesi JavaScript tarafından değiştirildi.";
+
+// Yeni bir alt öğe ekleyerek içeriğini güncelleme
+let newElement = document.createElement("p");
+newElement.textContent = "Yeni paragraf öğesi";
+divElement.appendChild(newElement);
+
+// Bir alt öğe kaldırma
+divElement.removeChild(newElement);
+
+// Öznitelik değerini ayarlama
+divElement.setAttribute("title", "Bu bir div öğesi");
+
+// Özniteliği kaldırma
+divElement.removeAttribute("class");
+
+// Stil özelliklerini değiştirme
+divElement.style.color = "red";
+divElement.style.backgroundColor = "yellow";
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
